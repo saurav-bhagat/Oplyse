@@ -24,9 +24,13 @@ function sendRequest( keyword ){
 	axios.get(url)
 	.then(function(response) {
 		console.log(response.data);
-		var itemList = '<ul>';
+		var itemList = '';
 		for(var i=0 ; i<response.data.items.length;i++) {
-			itemList = itemList + '<li>'+response.data.items[i].pagemap.metatags[0]["og:description"] + '</li>';
+			if(response.data.items[i].pagemap.metatags[0]["og:description"] === undefined){
+				continue;
+			}
+			let link = response.data.items[i].link;
+			itemList = itemList + '<div class="make-card z-depth-3 child-divs">'+response.data.items[i].pagemap.metatags[0]["og:description"] + '<br> <a class="learn-more-links" href="'+ link + '">Learn More</a><br>' + '<span><i class="fa fa-thumbs-up"></i></span>&nbsp;&nbsp;<span><i class="fa fa-thumbs-down"></i></span><br /></div>';
 		}
 		itemList = itemList + '</ul>';
 		console.log(document.getElementById("show-list"));

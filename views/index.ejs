@@ -5,6 +5,7 @@
         <title><%= title %></title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  />
 <style>
   * {
     font-family: Verdana, Arial, sans-serif;
@@ -80,6 +81,7 @@
     margin-left: auto;
     text-align: left;
     min-height: 50px;
+    position: relative;
   }
   #start_button {
     border: 0;
@@ -87,13 +89,44 @@
     padding: 0;
   }
   #whole-website{
-      position: absolute;
-      top: 17vh;
-      right: auto;
-      left: 20vw;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
+  }
+  #show-list{
+      display: flex;
+      /* justify-content: space-between;
+      flex-wrap: wrap; */
+
+  }
+  .child-divs{
+      width: 80%;
+      margin-left :auto;
+      margin-right: auto;
+}
+  #show-list{
+      display: flex;
+      flex-direction: column;
+  }
+  /* #show-list li{
+      width: max-content;
+  } */
+
+  .make-card{
+      padding: 10px;
+      text-align: justify;
+      width: 51%;
+      margin-bottom: 25px;
+      color: #404040;
+  }
+  .mic-class{
+      position: absolute;
+      right: 0;
+      top: 10px;
+  }
+  .learn-more-links{
+      color: blue !important;
+      text-decoration: underline !important;
   }
 </style>
 </head>
@@ -120,14 +153,15 @@
                  Upgrade to <a href="//www.google.com/chrome">Chrome</a>
                  version 25 or later.</p>
         </div>
-        <div class="right">
-            <button id="start_button" onclick="startButton(event)">
-            <img id="start_img" src="images/mic.gif" alt="Start"></button>
-        </div>
+
         <div id="results">
             <span id="final_span" class="final"></span>
             <span id="interim_span" class="interim"></span>
             <p></p>
+            <div class="mic-class">
+                <button id="start_button" onclick="startButton(event)">
+                <img id="start_img" src="images/mic.gif" alt="Start"></button>
+            </div>
         </div>
         <div class="center">
            <!--  <div class="sidebyside" style="text-align:right">
@@ -155,6 +189,7 @@
                 </div>
             </div>
         </div>
+        <br><br>
         <div id="show-list">
 
         </div>

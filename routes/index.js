@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-
+var
 var ae = function analyzeEntitiesOfText(text) {
   // [START language_entities_string]
   // Imports the Google Cloud client library
@@ -51,7 +51,7 @@ router.post('/filter', function(req, res, next) {
 
     let text = req.body.body;
     ae(text);
-    res.send("saurav");
+    res.send();
 
 });
 
