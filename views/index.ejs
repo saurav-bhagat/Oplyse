@@ -6,9 +6,10 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <style>
   * {
-    font-family: Verdana, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   a:link {
     color:#000;
@@ -76,7 +77,9 @@
     font-weight: bold;
     border: 1px solid #ddd;
     padding: 15px;
-    width: 50vw;
+    border-radius: 4px;
+    background: #fff !important;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
     text-align: left;
@@ -115,9 +118,10 @@
   .make-card{
       padding: 10px;
       text-align: justify;
-      width: 51%;
+      width: 78%;
       margin-bottom: 25px;
-      color: #404040;
+      color: #424242 ;
+      background: #fff ;
   }
   .mic-class{
       position: absolute;
@@ -128,12 +132,39 @@
       color: blue !important;
       text-decoration: underline !important;
   }
+    body{
+        overflow-y: hidden;
+    }
+  .right-section{
+      background: #42a5f5;
+      height: 100vh;
+      max-height: 100vh;
+      overflow-y: scroll;
+  }
+  .left-section{
+      background: #f3f2f2;
+      height: 100vh;
+      max-height: 100vh;
+  }
+  .right-text{
+      color: #fff;
+      text-align: center;
+      position: relative;
+      top: 30vh;
+  }
+  .right-text p{
+      font-size: 23px;
+  }
 </style>
 </head>
 <body>
 
-    <div id="whole-website">
-        <img src="images/opllogo.png" alt="logo" style=" width:200px;"/>
+<div class="row main-wrapper">
+    <div class="col s5 left-section">
+        <div style="text-align:center;">
+            <img src="images/opllogo.png" alt="logo" style=" width:200px;"/>
+        </div>
+        <br><br>
         <div id="info">
 
             <p id="info_start">Click on the microphone icon and begin speaking.</p>
@@ -190,9 +221,78 @@
             </div>
         </div>
         <br><br>
+    </div>
+    <div class="col s7 right-section">
+        <br />
+        <div class="right-text">
+            <h2>Learn as you Go</h2>
+            <p>With Olypse Voice based tool</p>
+        </div>
         <div id="show-list">
 
         </div>
+        <br><br><br>
+    </div>
+</div>
+    <!-- <div id="whole-website">
+        <img src="images/opllogo.png" alt="logo" style=" width:200px;"/>
+        <div id="info">
+
+            <p id="info_start">Click on the microphone icon and begin speaking.</p>
+            <p id="info_speak_now">Speak now.</p>
+            <p id="info_no_speech">No speech was detected. You may need to adjust your
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+              microphone settings</a>.</p>
+            <p id="info_no_microphone" style="display:none">
+                No microphone was found. Ensure that a microphone is installed and that
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                microphone settings</a> are configured correctly.</p>
+            <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+            <p id="info_denied">Permission to use microphone was denied.</p>
+            <p id="info_blocked">Permission to use microphone is blocked. To change,
+                go to chrome://settings/contentExceptions#media-stream</p>
+            <p id="info_upgrade">Web Speech API is not supported by this browser.
+                 Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+                 version 25 or later.</p>
+        </div>
+
+        <div id="results">
+            <span id="final_span" class="final"></span>
+            <span id="interim_span" class="interim"></span>
+            <p></p>
+            <div class="mic-class">
+                <button id="start_button" onclick="startButton(event)">
+                <img id="start_img" src="images/mic.gif" alt="Start"></button>
+            </div>
+        </div>
+        <div class="center"> -->
+           <!--  <div class="sidebyside" style="text-align:right">
+                <button id="copy_button" class="button" onclick="copyButton()">
+                Copy and Paste</button>
+                <div id="copy_info" class="info">
+                    Press Control-C to copy text.<br>(Command-C on Mac.)
+                </div>
+            </div>
+            <div class="sidebyside">
+                <button id="email_button" class="button" onclick="emailButton()">
+                    Create Email</button>
+                <div id="email_info" class="info">
+                    Text sent to default email application.<br>
+                    (See chrome://settings/handlers to change.)
+                </div>
+            </div>
+            <p></p> -->
+            <!-- <div id="div_language" style="display:flex;justify-content: space-around;">
+                <div class="input-field">
+                    <select id="select_language" onchange="updateCountry()"></select>
+                </div>
+                <div class="input-field">
+                    <select id="select_dialect"></select>
+                </div>
+            </div>
+        </div>
+        <br><br> -->
+
     </div>
 
 
@@ -342,6 +442,7 @@ if (!('webkitSpeechRecognition' in window)) {
       createEmail();
     }
     // console.log("ab khatam hua and final transcript is "+ final_transcript);
+    document.getElementsByClassName('right-text')[0].style.display = 'none';
     sendRequest(final_transcript);
   };
 
