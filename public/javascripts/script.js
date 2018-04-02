@@ -5,14 +5,6 @@ function sendRequest( keyword ){
 		alert("cannot send request, try once again");
 		return;
 	}
-	// var keywordArray = [];
-	// var headers = {
-    //         'Content-Type': 'application/json',
-    //         'api-key': 'de7bd3d0-2a1f-11e8-9172-3ff24e827f76'
-    //     }
-    // var data = {
-    // 	"body" : keyword
-    // }
 	axios.post('http://localhost:3000/filter', {"body" : keyword})
 		.then((response) => {
 			console.log(response);
@@ -39,20 +31,6 @@ function sendRequest( keyword ){
 	.catch(function (err) {
 		console.log(err);
 	});
-    // axios.post('http://api.cortical.io/rest/text/keywords?retina_name=en_associative', data, headers)
-    //     .then((response) => {
-    //         console.log(response);
-    //         for(var k=0;k<response.data.length;k++){
-    //         	keywordArray.push(response.data[k]);
-    //         }
-    //          console.log(keywordArray);
-	// 		    var keyword = keywordArray[0];
-	// 			// var keyword = keyword.replace(/ /g, "%20");
-	// 			console.log(keyword);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error)
-    //     })
 }
 
 //AIzaSyDo_FttfQSwU-g_hc0R5zQ5GazplE0Ir9c
